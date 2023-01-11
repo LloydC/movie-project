@@ -5,7 +5,7 @@ const router = express.Router();
 const Movie = require("../models/Movie.model");
 
 // ********* require fileUploader in order to use it *********
-const fileUploader = require("../configs/cloudinary.config");
+const fileUploader = require("../config/cloudinary.config");
 
 // ****************************************************************************************
 // GET route to display all the movies

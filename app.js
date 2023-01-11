@@ -11,7 +11,7 @@ const path = require('path');
 const app = express();
 
 // require database configuration
-require('./configs/db.config');
+require('./config/db.config');
 
 // Middleware Setup
 app.use(logger('dev'));
