@@ -15,7 +15,7 @@ router.get("/movies", (req, res) => {
   Movie.find()
     .then((moviesFromDB) => {
       console.log(moviesFromDB);
-      res.render("movies-list", { movies: moviesFromDB });
+      res.render("movies/movies-list", { movies: moviesFromDB });
     })
     .catch((err) =>
       console.log(`Error while getting the movies from the DB: ${err}`)
@@ -26,7 +26,7 @@ router.get("/movies", (req, res) => {
 // GET route to display the form to create a new movie
 // ****************************************************************************************
 
-router.get("/movies/create", (req, res) => res.render("movie-create"));
+router.get("/movies/create", (req, res) => res.render("movies/movie-create"));
 
 // ****************************************************************************************
 // POST route for saving a new movie in the database
@@ -53,7 +53,7 @@ router.post("/movies/create", fileUploader.single("image"), (req, res) => {
 router.get("/movies/:id/edit", (req, res) => {
   const { id } = req.params;
   Movie.findById(id)
-    .then((movieToEdit) => res.render("movie-edit", movieToEdit))
+    .then((movieToEdit) => res.render("movies/movie-edit", movieToEdit))
     .catch((error) =>
       console.log(`Error while getting a single movie for edit: ${error}`)
     );
